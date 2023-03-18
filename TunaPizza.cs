@@ -2,11 +2,11 @@
 
 namespace patternz;
 
-public class SpicyVegPizza : IPizzaWithTopping
+public class TunaPizza : IPizza
 {
     public void Bake()
     {
-        Console.WriteLine($"baking the {this.GetType()}");
+        Console.WriteLine($"baking the {this.GetType()} - yummy seafood and protein yo");
     }
 
     public void PutInBox()
@@ -17,10 +17,5 @@ public class SpicyVegPizza : IPizzaWithTopping
     public void Deliver()
     {
         Console.WriteLine($"deliver the {this.GetType()}");
-    }
-    
-    public void AddTopping(string topping)
-    {
-        Console.WriteLine($"i have added topping... {topping}");
     }
 }

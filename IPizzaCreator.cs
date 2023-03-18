@@ -9,4 +9,6 @@ namespace patternz;
 internal interface IPizzaCreator
 {
     public IPizza CreatePizza();
+
+    //public void DoStuffToPizza();
 }
