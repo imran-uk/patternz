@@ -7,29 +7,37 @@
 
 // lets create different types of Pizza
 
-//namespace patternz;
-
 using patternz;
 
-var order = "cheese-tomato";
+// TODO
+// use readline shiz, see Atypical C# code
+//var pizzaOrder = "cheese-tomato";
+var pizzaOrder = "spicy-veg";
 
-if(order == "cheese-tomato")
+// with previous code, if i add a new pizza type i need to change this code quite a bit eg. repeat the Bake / PutInBox and Deliver lines...
+// can i leverage a pattern and improve code re-use ?
+
+// hmm this seems...
+IPizzaCreator pizzaCreator = default!;
+
+switch (pizzaOrder)
 {
-    Console.WriteLine($"Here is your cheese-tomato pizza");
-
-    var pizza = new CheeseTomatoPizza();
-    pizza.Bake();
-    pizza.PutInBox();
-    pizza.Deliver();
-}
-else if(order == "spicy-veg")
-{
-    Console.WriteLine($"Here is your cheese-tomato pizza");
-
-    var pizza = new SpicyVegPizza();
-    pizza.Bake();
-    pizza.PutInBox();
-    pizza.Deliver();
+    case "cheese-tomato":
+        pizzaCreator = new CheeseTomatoPizzaCreator();
+        break;
+    case "spicy-veg":
+        pizzaCreator = new SpicyVegPizzaCreator();
+        break;
+    default:
+        throw new Exception("un-supported pizza topping, sorry dude");
 }
 
-//Console.WriteLine("Hello, World!");
+// now do the actions/logic common to all pizzas
+// treat everying as an IPizza
+// this code does not know or care what is in pizzaCreator, only that it can do pizza related stuff
+
+// lets use the factory method, no "new" instance here
+var pizza = pizzaCreator.CreatePizza();
+pizza.Bake();
+pizza.PutInBox();
+pizza.Deliver();

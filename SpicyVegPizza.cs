@@ -2,7 +2,7 @@
 
 namespace patternz;
 
-public class SpicyVegPizza
+public class SpicyVegPizza : IPizza
 {
     public void Bake()
     {

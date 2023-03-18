@@ -2,15 +2,8 @@
 
 namespace patternz;
 
-public class CheeseTomatoPizza
+public class CheeseTomatoPizza : IPizza
 {
-    // implicit?
-    /*
-    public CheeseTomatoPizza()
-    {
-    }
-    */
-
     public void Bake()
     {
         Console.WriteLine($"baking the {typeof(CheeseTomatoPizza)}");
