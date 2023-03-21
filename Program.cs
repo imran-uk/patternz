@@ -42,11 +42,7 @@ switch (pizzaOrder)
 
 // lets use the factory method, no "new" instance here
 
-var pizza = pizzaCreator.CreatePizza();
-
-pizza.Bake();
-pizza.PutInBox();
-pizza.Deliver();
+pizzaCreator.DoStuffToPizza();
 
 // SUMMARY
 // the code that creates the pizza is seperated from the consumer (this program)
@@ -54,4 +50,5 @@ pizza.Deliver();
 // eg. what if we discover a fresher, newer way yo make CheeseTomatoPizza?
 
 // to add a new Pizza we just create concrete IPizza and concrete ICreator class for it and then wire it up to this class (*the switch/case)
+// THATS IT !
 // minimal changes here! so we can have confidecne that we have not introduced regressopns/bugs (moar changes == moar bugz)
