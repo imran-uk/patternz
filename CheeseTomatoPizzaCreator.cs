@@ -4,6 +4,7 @@ namespace patternz;
 
 public class CheeseTomatoPizzaCreator : IPizzaCreator
 {
+    // this is the factory method
     public IPizza CreatePizza()
     {
         Console.WriteLine($"created pizza, yummy cheese / {this.GetType()}");

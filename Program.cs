@@ -13,28 +13,14 @@ using patternz;
 // use readline shiz, see Atypical C# code
 //var pizzaOrder = "cheese-tomato";
 //var pizzaOrder = "spicy-veg";
-var pizzaOrder = "tuna";
+var pizzaOrder = "spicy-veg";
 
 // with previous code, if i add a new pizza type i need to change this code quite a bit eg. repeat the Bake / PutInBox and Deliver lines...
 // can i leverage a pattern and improve code re-use ?
 
 // hmm this seems...
-IPizzaCreator pizzaCreator = default!;
-
-switch (pizzaOrder)
-{
-    case "cheese-tomato":
-        pizzaCreator = new CheeseTomatoPizzaCreator();
-        break;
-    case "spicy-veg":
-        pizzaCreator = new SpicyVegPizzaCreator();
-        break;
-    case "tuna":
-        pizzaCreator = new TunaPizzaCreator();
-        break;
-    default:
-        throw new Exception("un-supported pizza topping, sorry dude");
-}
+var pizzaCreatorFactory = new PizzaCreatorFactory();
+var pizzaCreator = pizzaCreatorFactory.GetPizzaCreator(pizzaOrder);
 
 // now do the actions/logic common to all pizzas
 // treat everying as an IPizza
