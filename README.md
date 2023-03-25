@@ -1,2 +1,0 @@
-# patternz
-Learning Design Patterns
