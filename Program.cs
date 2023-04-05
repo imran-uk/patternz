@@ -7,13 +7,23 @@
 
 // lets create different types of Pizza
 
+using System.Text.Json;
 using patternz;
 
 // TODO
 // use readline shiz, see Atypical C# code
 //var pizzaOrder = "cheese-tomato";
 //var pizzaOrder = "spicy-veg";
-var pizzaOrder = "spicy-veg";
+var pizzaOrder = "cheese-veg-tuna";
+
+
+// HOMEWORK
+// find a design-pattern that will allow me to create ANY type of pizza
+// eg. cheese, tomato, tuna etc
+//
+// hint: builder-pattern
+// try to implement this builder!
+
 
 // with previous code, if i add a new pizza type i need to change this code quite a bit eg. repeat the Bake / PutInBox and Deliver lines...
 // can i leverage a pattern and improve code re-use ?
@@ -28,7 +38,9 @@ var pizzaCreator = pizzaCreatorFactory.GetPizzaCreator(pizzaOrder);
 
 // lets use the factory method, no "new" instance here
 
-pizzaCreator.DoStuffToPizza();
+var pizza = pizzaCreator.CreatePizza();
+
+Console.WriteLine($"my pizza is... {pizza}");
 
 // SUMMARY
 // the code that creates the pizza is seperated from the consumer (this program)

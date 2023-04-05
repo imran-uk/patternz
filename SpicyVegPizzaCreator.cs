@@ -4,7 +4,7 @@ public class SpicyVegPizzaCreator : IPizzaCreator
 {
     public IPizza CreatePizza()
     {
-        Console.WriteLine($"created pizza, caution: spice / {this.GetType()}");
+        Console.WriteLine($"created a spicy pizza, caution: hot!");
 
         return new SpicyVegPizza();
     }
